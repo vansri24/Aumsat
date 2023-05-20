@@ -18,7 +18,7 @@ class _MyRegisterState extends State<MyRegister> {
       decoration: const BoxDecoration(
 
         image: DecorationImage(
-            image: AssetImage('assets/imag.svg'), fit: BoxFit.cover),
+            image: AssetImage('assets/Register.png'), fit: BoxFit.cover),
       ),
       child: Scaffold(
         backgroundColor: Colors.transparent,
