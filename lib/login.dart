@@ -12,7 +12,7 @@ class _MyLoginState extends State<MyLogin> {
     return Container(
       decoration: const BoxDecoration(
         image: DecorationImage(
-            image: AssetImage('assets/Login.png'), fit: BoxFit.cover),
+            image: AssetImage('assets/Login.jpg'), fit: BoxFit.cover),
       ),
       child: Scaffold(
         backgroundColor: Colors.transparent,
@@ -71,7 +71,9 @@ class _MyLoginState extends State<MyLogin> {
                                 style: const ButtonStyle(
                                   backgroundColor: MaterialStatePropertyAll(Color(0xFF2196F3)),
                                 ),
-                                onPressed: () {},
+                                onPressed: () {
+                                  Navigator.pushNamed(context, 'landing');
+                                },
 
                                 child: const Text(
                                   '   Login   ',
@@ -81,18 +83,7 @@ class _MyLoginState extends State<MyLogin> {
                                 ),
 
 
-                              CircleAvatar(
-                                radius: 30,
-                                backgroundColor: const Color(0xFF2196F3),
-                                child: IconButton(
-                                    color: Colors.white,
-                                    onPressed: () {
-                                      Navigator.pushNamed(context, 'navigate');
-                                    },
-                                    icon: const Icon(
-                                      Icons.arrow_forward,
-                                    )),
-                              )
+
                             ],
                           ),
                           const SizedBox(

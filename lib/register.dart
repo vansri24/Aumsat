@@ -1,6 +1,8 @@
 // ignore_for_file: library_private_types_in_public_api
 import 'package:flutter/material.dart';
 
+
+
 class MyRegister extends StatefulWidget
 {
   const MyRegister({Key? key}) : super(key: key);
@@ -14,8 +16,9 @@ class _MyRegisterState extends State<MyRegister> {
   Widget build(BuildContext context) {
     return Container(
       decoration: const BoxDecoration(
+
         image: DecorationImage(
-            image: AssetImage('assets/Login.png'), fit: BoxFit.cover),
+            image: AssetImage('assets/imag.svg'), fit: BoxFit.cover),
       ),
       child: Scaffold(
         backgroundColor: Colors.transparent,
@@ -136,7 +139,7 @@ class _MyRegisterState extends State<MyRegister> {
 
                               // CircleAvatar(
                               //   radius: 30,
-                              //   backgroundColor: const Color(0xFF0D47A1),
+                              //   backgroundColor: const    Col or(0xFF0D47A1),
                               //   child: IconButton(
                               //       color: Colors.white,
                               //       onPressed: () {

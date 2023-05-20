@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:aumsat/register.dart';
 import 'package:aumsat/login.dart';
+import 'package:aumsat/landing.dart';
+
 void main() {
   runApp
     (
@@ -12,6 +14,7 @@ void main() {
           {
             'register': (context) => const MyRegister(),
             'login': (context) => const MyLogin(),
+            'landing':(context) => const MyLanding(),
           }
       )
   );
