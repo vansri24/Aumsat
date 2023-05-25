@@ -20,10 +20,12 @@ class _MyLandingState extends State<MyLanding> {
   Widget build(BuildContext context) {
     return Container(
       decoration: BoxDecoration(
-        color: Colors.blueAccent, // Replace with your desired background color
+        color: Colors.transparent, // Replace with your desired background color
       ),
       child: Scaffold(
+        backgroundColor: Colors.blueAccent.withOpacity(0.5),
         appBar: AppBar(
+          title: Text('Services'),
           backgroundColor: Colors.transparent,
           elevation: 0,
         ),
@@ -37,7 +39,20 @@ class _MyLandingState extends State<MyLanding> {
                   setState(() {});
                 },
               ),
-              items: _carouselItems,
+              items: _carouselItems.map((item) {
+                return ClipRRect(
+                  borderRadius: BorderRadius.circular(0.0),
+                  child: Container(
+                    decoration: BoxDecoration(
+                      border: Border.all(
+                        color: Colors.white.withOpacity(0.5), // White color with opacity
+                        width: 10.0,
+                      ),
+                    ),
+                    child: item,
+                  ),
+                );
+              }).toList(),
             ),
             const SizedBox(height: 16),
             Expanded(
@@ -50,81 +65,73 @@ class _MyLandingState extends State<MyLanding> {
                   children: [
                     GestureDetector(
                       onTap: () {
-                        // Handle the first button's onTap action here
+                          Navigator.pushNamed(context, 'waterconditioner');
                       },
                       child: Container(
-                        decoration: const BoxDecoration(
-                          color: Colors.blue,
-                          borderRadius: BorderRadius.only(
-                            topLeft: Radius.circular(20.0),
-                            topRight: Radius.circular(20.0),
-                            bottomLeft: Radius.circular(20.0),
-                            bottomRight: Radius.circular(20.0),
-                          ),
+                        decoration: BoxDecoration(
+                          color: Colors.transparent,
+                          borderRadius: BorderRadius.circular(20.0),
                         ),
-                        child: Image.asset(
-                          'assets/button1.jpg',
-                          fit: BoxFit.cover,
+                        child: ClipRRect(
+                          borderRadius: BorderRadius.circular(20.0),
+                          child: Image.asset(
+                            'assets/button1.jpg',
+                            fit: BoxFit.cover,
+                          ),
                         ),
                       ),
                     ),
                     GestureDetector(
                       onTap: () {
-                        // Handle the second button's onTap action here
+                        Navigator.pushNamed(context, 'landing');
                       },
                       child: Container(
-                        decoration: const BoxDecoration(
-                          color: Colors.red,
-                          borderRadius: BorderRadius.only(
-                            topLeft: Radius.circular(20.0),
-                            topRight: Radius.circular(20.0),
-                            bottomLeft: Radius.circular(20.0),
-                            bottomRight: Radius.circular(20.0),
-                          ),
+                        decoration: BoxDecoration(
+                          color: Colors.transparent,
+                          borderRadius: BorderRadius.circular(20.0),
                         ),
-                        child: Image.asset(
-                          'assets/button2.jpg',
-                          fit: BoxFit.cover,
+                        child: ClipRRect(
+                          borderRadius: BorderRadius.circular(20.0),
+                          child: Image.asset(
+                            'assets/button2.jpg',
+                            fit: BoxFit.cover,
+                          ),
                         ),
                       ),
                     ),
                     GestureDetector(
                       onTap: () {
-                        // Handle the third button's onTap action here
+                        Navigator.pushNamed(context, 'landing');
                       },
                       child: Container(
-                        decoration: const BoxDecoration(
-                          color: Colors.green,
-                          borderRadius: BorderRadius.only(
-                            topLeft: Radius.circular(20.0),
-                            topRight: Radius.circular(20.0),
-                            bottomLeft: Radius.circular(20.0),
-                            bottomRight: Radius.circular(20.0),
-                          ),
+                        decoration: BoxDecoration(
+                          color: Colors.transparent,
+                          borderRadius: BorderRadius.circular(20.0),
                         ),
-                        child: Image.asset(
-                          'assets/button3.jpg',
-                          fit: BoxFit.cover,
+                        child: ClipRRect(
+                          borderRadius: BorderRadius.circular(20.0),
+                          child: Image.asset(
+                            'assets/button3.jpg',
+                            fit: BoxFit.cover,
+                          ),
                         ),
                       ),
                     ),
                     GestureDetector(
                       onTap: () {
-                        // Handle the fourth button's onTap action here
+                        Navigator.pushNamed(context, 'landing');
                       },
                       child: Container(
-                        decoration: const BoxDecoration(
-                          color: Colors.orange,
-                          borderRadius: BorderRadius.only(
-                            topLeft: Radius.circular(20.0),
-                            topRight: Radius.circular(20.0),
-                            bottomLeft: Radius.circular(20.0),
-                            bottomRight: Radius.circular(20.0),
-                          ),
+                        decoration: BoxDecoration(
+                          color: Colors.transparent,
+                          borderRadius: BorderRadius.circular(20.0),
                         ),
-                        child: Image.asset(
-                          'assets/button4.jpg',
-                          fit: BoxFit.cover,
+                        child: ClipRRect(
+                          borderRadius: BorderRadius.circular(20.0),
+                          child: Image.asset(
+                            'assets/button4.jpg',
+                            fit: BoxFit.cover,
+                          ),
                         ),
                       ),
                     ),

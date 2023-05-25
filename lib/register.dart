@@ -18,7 +18,7 @@ class _MyRegisterState extends State<MyRegister> {
       decoration: const BoxDecoration(
 
         image: DecorationImage(
-            image: AssetImage('assets/Register.png'), fit: BoxFit.cover),
+            image: AssetImage('assets/Login.jpg'), fit: BoxFit.cover),
       ),
       child: Scaffold(
         backgroundColor: Colors.transparent,
@@ -29,16 +29,16 @@ class _MyRegisterState extends State<MyRegister> {
         body: Stack(
           children: [
             Container(
-              padding: const EdgeInsets.only(left: 65, top: 220),
+              padding: const EdgeInsets.only(left: 80, top: 210),
               child: const Text(
-                'Create Account',
+                '',
                 style: TextStyle(color: Colors.white, fontSize: 33),
               ),
             ),
             SingleChildScrollView(
               child: Container(
                 padding: const EdgeInsets.only(
-                    top: 300 ,left :20),
+                    top: 270 ,left :20),
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
@@ -117,7 +117,7 @@ class _MyRegisterState extends State<MyRegister> {
                                 )),
                           ),
                           const SizedBox(
-                            height: 40,
+                            height: 35,
                           ),
 
                           Row(
@@ -127,32 +127,23 @@ class _MyRegisterState extends State<MyRegister> {
                                 style: const ButtonStyle(
                                   backgroundColor: MaterialStatePropertyAll(Colors.white),
                                 ),
-                                onPressed: () {},
+                                onPressed: () {
+                                  Navigator.pushNamed(context, 'landing');
+                                },
 
                                 child: const Text(
-                                  '   Register   ',
+                                  ' Create Account ',
                                   style: TextStyle(
                                       fontSize: 27,fontWeight: FontWeight.w700, color: Colors.blueAccent),
                                 ),
                               ),
 
 
-                              // CircleAvatar(
-                              //   radius: 30,
-                              //   backgroundColor: const    Col or(0xFF0D47A1),
-                              //   child: IconButton(
-                              //       color: Colors.white,
-                              //       onPressed: () {
-                              //         Navigator.pushNamed(context, 'navigate');
-                              //       },
-                              //       icon: const Icon(
-                              //         Icons.arrow_forward,
-                              //       )),
-                              // )
+
                             ],
                           ),
                           const SizedBox(
-                            height: 40,
+                            height: 10,
                           ),
                           Row(
                             mainAxisAlignment: MainAxisAlignment.spaceBetween,

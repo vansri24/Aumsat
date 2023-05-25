@@ -1,9 +1,13 @@
+import 'package:aumsat/splash.dart';
 import 'package:flutter/material.dart';
 import 'package:aumsat/register.dart';
 import 'package:aumsat/login.dart';
 import 'package:aumsat/landing.dart';
+import 'package:aumsat/waterconditioner.dart';
+
 
 void main() {
+
   runApp
     (
       MaterialApp
@@ -15,6 +19,7 @@ void main() {
             'register': (context) => const MyRegister(),
             'login': (context) => const MyLogin(),
             'landing':(context) => const MyLanding(),
+            'waterconditioner':(context) => const MyWaterconditioner(),
           }
       )
   );
