@@ -1,9 +1,13 @@
-import 'package:aumsat/splash.dart';
+import 'package:aumsat/miscell.dart';
+import 'package:aumsat/pipeline.dart';
+import 'package:aumsat/profile.dart';
 import 'package:flutter/material.dart';
 import 'package:aumsat/register.dart';
 import 'package:aumsat/login.dart';
 import 'package:aumsat/landing.dart';
 import 'package:aumsat/waterconditioner.dart';
+import 'package:aumsat/groundwater.dart';
+import 'package:aumsat/mapscreen.dart';
 
 
 void main() {
@@ -20,6 +24,11 @@ void main() {
             'login': (context) => const MyLogin(),
             'landing':(context) => const MyLanding(),
             'waterconditioner':(context) => const MyWaterconditioner(),
+            'groundwater':(context)=> const MyGroundwater(),
+            'pipeline':(context) => const MyPipeline(),
+            'miscell':(context) => const MyMiscell(),
+            'mapscreen':(context) => const MyMapscreen(),
+            'profile':(context) => const MyProfile(),
           }
       )
   );

@@ -1,3 +1,6 @@
+import 'package:aumsat/mapscreen.dart';
+import 'package:aumsat/profile.dart';
+import 'package:aumsat/services.dart';
 import 'package:flutter/material.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 
@@ -16,6 +19,36 @@ class _MyLandingState extends State<MyLanding> {
     Image.asset('assets/image4.jpg', fit: BoxFit.cover),
   ];
 
+  int _selectedIndex = 0;
+
+
+
+  void _onItemTapped(int index) {
+    setState(() {
+      _selectedIndex = index;
+    });
+    if (index == 1) {
+      Navigator.push(
+        context,
+        MaterialPageRoute(builder: (context) => MyServices()),
+      );
+    }
+    if (index == 2) {
+      Navigator.push(
+        context,
+        MaterialPageRoute(builder: (context) => MyMapscreen()),
+      );
+    }
+    if (index == 3) {
+      Navigator.push(
+        context,
+        MaterialPageRoute(builder: (context) => MyProfile()),
+      );
+    }else {
+      // Handle other navigation routes here
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -23,7 +56,7 @@ class _MyLandingState extends State<MyLanding> {
         color: Colors.transparent, // Replace with your desired background color
       ),
       child: Scaffold(
-        backgroundColor: Colors.blueAccent.withOpacity(0.5),
+        backgroundColor: Colors.white,
         appBar: AppBar(
           title: Text('Services'),
           backgroundColor: Colors.transparent,
@@ -33,7 +66,7 @@ class _MyLandingState extends State<MyLanding> {
           children: [
             CarouselSlider(
               options: CarouselOptions(
-                height: 300.0,
+                height: 200.0, // Adjust the height as desired
                 enlargeCenterPage: true,
                 onPageChanged: (index, reason) {
                   setState(() {});
@@ -41,12 +74,12 @@ class _MyLandingState extends State<MyLanding> {
               ),
               items: _carouselItems.map((item) {
                 return ClipRRect(
-                  borderRadius: BorderRadius.circular(0.0),
+                  borderRadius: BorderRadius.circular(10.0),
                   child: Container(
                     decoration: BoxDecoration(
                       border: Border.all(
-                        color: Colors.white.withOpacity(0.5), // White color with opacity
-                        width: 10.0,
+                        color: Colors.black, // Black color with opacity
+                        width: 3.0,
                       ),
                     ),
                     child: item,
@@ -54,83 +87,107 @@ class _MyLandingState extends State<MyLanding> {
                 );
               }).toList(),
             ),
-            const SizedBox(height: 16),
+            const SizedBox(height: 30),
             Expanded(
               child: Padding(
                 padding: const EdgeInsets.all(25.0),
-                child: GridView.count(
-                  crossAxisCount: 2,
-                  mainAxisSpacing: 25.0,
-                  crossAxisSpacing: 25.0,
+                child: Column(
                   children: [
                     GestureDetector(
                       onTap: () {
-                          Navigator.pushNamed(context, 'waterconditioner');
+                        Navigator.pushNamed(context, 'groundwater');
                       },
                       child: Container(
                         decoration: BoxDecoration(
-                          color: Colors.transparent,
-                          borderRadius: BorderRadius.circular(20.0),
+                          borderRadius: BorderRadius.circular(10.0),
+                          border: Border.all(
+                            color: Colors.black, // Black color
+                            width: 2.0,
+                          ),
                         ),
+                        width: 80 * 4,
+                        height: 80.0, // Increase the height as desired
                         child: ClipRRect(
-                          borderRadius: BorderRadius.circular(20.0),
+                          borderRadius: BorderRadius.circular(10.0),
                           child: Image.asset(
-                            'assets/button1.jpg',
+                            'assets/grounddd.jfif',
                             fit: BoxFit.cover,
+                            width: double.infinity,
                           ),
                         ),
                       ),
                     ),
+                    const SizedBox(height: 30),
                     GestureDetector(
                       onTap: () {
-                        Navigator.pushNamed(context, 'landing');
+                        Navigator.pushNamed(context, 'pipeline');
                       },
                       child: Container(
                         decoration: BoxDecoration(
-                          color: Colors.transparent,
-                          borderRadius: BorderRadius.circular(20.0),
+                          borderRadius: BorderRadius.circular(10.0),
+                          border: Border.all(
+                            color: Colors.black, // Black color
+                            width: 2.0,
+                          ),
                         ),
+                        width: 80 * 4,
+                        height: 80.0, // Increase the height as desired
                         child: ClipRRect(
-                          borderRadius: BorderRadius.circular(20.0),
+                          borderRadius: BorderRadius.circular(10.0),
                           child: Image.asset(
-                            'assets/button2.jpg',
+                            'assets/pipe.jpg',
                             fit: BoxFit.cover,
+                            width: double.infinity,
                           ),
                         ),
                       ),
                     ),
+                    const SizedBox(height: 30),
                     GestureDetector(
                       onTap: () {
-                        Navigator.pushNamed(context, 'landing');
+                        Navigator.pushNamed(context, 'waterconditioner');
                       },
                       child: Container(
                         decoration: BoxDecoration(
-                          color: Colors.transparent,
-                          borderRadius: BorderRadius.circular(20.0),
+                          borderRadius: BorderRadius.circular(10.0),
+                          border: Border.all(
+                            color: Colors.black, // Black color
+                            width: 2.0,
+                          ),
                         ),
+                        width: 80 * 4,
+                        height: 80.0, // Increase the height as desired
                         child: ClipRRect(
-                          borderRadius: BorderRadius.circular(20.0),
+                          borderRadius: BorderRadius.circular(10.0),
                           child: Image.asset(
-                            'assets/button3.jpg',
+                            'assets/conditioner.jpg',
                             fit: BoxFit.cover,
+                            width: double.infinity,
                           ),
                         ),
                       ),
                     ),
+                    const SizedBox(height: 30),
                     GestureDetector(
                       onTap: () {
-                        Navigator.pushNamed(context, 'landing');
+                        Navigator.pushNamed(context, 'miscell');
                       },
                       child: Container(
                         decoration: BoxDecoration(
-                          color: Colors.transparent,
-                          borderRadius: BorderRadius.circular(20.0),
+                          borderRadius: BorderRadius.circular(10.0),
+                          border: Border.all(
+                            color: Colors.black, // Black color
+                            width: 2.0,
+                          ),
                         ),
+                        width: 80 * 4,
+                        height: 80.0, // Increase the height as desired
                         child: ClipRRect(
-                          borderRadius: BorderRadius.circular(20.0),
+                          borderRadius: BorderRadius.circular(10.0),
                           child: Image.asset(
-                            'assets/button4.jpg',
+                            'assets/miscell.jfif',
                             fit: BoxFit.cover,
+                            width: double.infinity,
                           ),
                         ),
                       ),
@@ -140,6 +197,30 @@ class _MyLandingState extends State<MyLanding> {
               ),
             ),
           ],
+        ),
+        bottomNavigationBar: BottomNavigationBar(
+          items: const <BottomNavigationBarItem>[
+            BottomNavigationBarItem(
+              icon: Icon(Icons.home),
+              label: 'Home',
+            ),
+            BottomNavigationBarItem(
+              icon: Icon(Icons.format_list_numbered),
+              label: 'Services',
+            ),
+            BottomNavigationBarItem(
+              icon: Icon(Icons.map_outlined),
+              label: 'Map',
+            ),
+            BottomNavigationBarItem(
+              icon: Icon(Icons.person),
+              label: 'Profile',
+            ),
+          ],
+          currentIndex: _selectedIndex,
+          selectedItemColor: Colors.black,
+          unselectedItemColor: Colors.grey,
+          onTap: _onItemTapped,
         ),
       ),
     );

@@ -1,20 +1,20 @@
 import 'package:flutter/material.dart';
 
-class MyWaterconditioner extends StatefulWidget {
-  const MyWaterconditioner({Key? key}) : super(key: key);
+class MyMiscell extends StatefulWidget {
+  const MyMiscell({Key? key}) : super(key: key);
 
   @override
-  State<MyWaterconditioner> createState() => _MyWaterconditionerState();
+  State<MyMiscell> createState() => _MyMiscellState();
 }
 
-class _MyWaterconditionerState extends State<MyWaterconditioner> {
+class _MyMiscellState extends State<MyMiscell> {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
       home: Scaffold(
         backgroundColor: Colors.white,
         appBar: AppBar(
-          title: Text('Water Conditioner'),
+          title: Text('Miscellaneous'),
           backgroundColor: Colors.black,
           elevation: 0,
         ),
