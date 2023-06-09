@@ -13,15 +13,13 @@ class MyLanding extends StatefulWidget {
 
 class _MyLandingState extends State<MyLanding> {
   final List<Widget> _carouselItems = [
-    Image.asset('assets/image1.jpg', fit: BoxFit.cover),
+    Image.asset('assets/image1.jpeg', fit: BoxFit.cover),
     Image.asset('assets/image2.jpg', fit: BoxFit.cover),
     Image.asset('assets/image3.jpg', fit: BoxFit.cover),
     Image.asset('assets/image4.jpg', fit: BoxFit.cover),
   ];
 
   int _selectedIndex = 0;
-
-
 
   void _onItemTapped(int index) {
     setState(() {
@@ -36,7 +34,7 @@ class _MyLandingState extends State<MyLanding> {
     if (index == 2) {
       Navigator.push(
         context,
-        MaterialPageRoute(builder: (context) => MyMapscreen()),
+        MaterialPageRoute(builder: (context) => MyMapScreen()),
       );
     }
     if (index == 3) {
@@ -44,13 +42,16 @@ class _MyLandingState extends State<MyLanding> {
         context,
         MaterialPageRoute(builder: (context) => MyProfile()),
       );
-    }else {
+    } else {
       // Handle other navigation routes here
     }
   }
 
   @override
   Widget build(BuildContext context) {
+    final screenHeight = MediaQuery.of(context).size.height;
+    //final screenWidth = MediaQuery.of(context).size.width;
+
     return Container(
       decoration: BoxDecoration(
         color: Colors.transparent, // Replace with your desired background color
@@ -66,7 +67,8 @@ class _MyLandingState extends State<MyLanding> {
           children: [
             CarouselSlider(
               options: CarouselOptions(
-                height: 200.0, // Adjust the height as desired
+                height: screenHeight * 0.25,
+                // Adjust the height as desired (25% of the screen height)
                 enlargeCenterPage: true,
                 onPageChanged: (index, reason) {
                   setState(() {});
@@ -74,19 +76,27 @@ class _MyLandingState extends State<MyLanding> {
               ),
               items: _carouselItems.map((item) {
                 return ClipRRect(
-                  borderRadius: BorderRadius.circular(10.0),
+                  borderRadius: BorderRadius.circular(20.0),
+                child: AspectRatio(
+                aspectRatio: 2,
                   child: Container(
                     decoration: BoxDecoration(
+                      borderRadius: BorderRadius.only(
+                        topLeft: Radius.circular(10.0),
+                        bottomLeft: Radius.circular(10.0),
+                      ),
                       border: Border.all(
-                        color: Colors.black, // Black color with opacity
-                        width: 3.0,
+                        color: Colors.white,
+                        width: 0.0,
                       ),
                     ),
                     child: item,
                   ),
+                ),
                 );
               }).toList(),
-            ),
+
+    ),
             const SizedBox(height: 30),
             Expanded(
               child: Padding(
@@ -97,101 +107,251 @@ class _MyLandingState extends State<MyLanding> {
                       onTap: () {
                         Navigator.pushNamed(context, 'groundwater');
                       },
-                      child: Container(
-                        decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(10.0),
-                          border: Border.all(
-                            color: Colors.black, // Black color
-                            width: 2.0,
+                      child: FractionallySizedBox(
+                        widthFactor: 0.9, // Adjust the width factor as desired
+                        child: Card(
+                          elevation: 4,
+                          shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(10.0),
                           ),
-                        ),
-                        width: 80 * 4,
-                        height: 80.0, // Increase the height as desired
-                        child: ClipRRect(
-                          borderRadius: BorderRadius.circular(10.0),
-                          child: Image.asset(
-                            'assets/grounddd.jfif',
-                            fit: BoxFit.cover,
-                            width: double.infinity,
+                          child: FractionallySizedBox(
+                            widthFactor: 0.9, // Adjust the width factor as desired
+                            child: Row(
+                              children: [
+                                Container(
+                                  width: 100,
+                                  height: 80,
+                                  decoration: BoxDecoration(
+                                    borderRadius: BorderRadius.only(
+                                      topLeft: Radius.circular(10.0),
+                                      bottomLeft: Radius.circular(10.0),
+                                    ),
+                                    image: DecorationImage(
+                                      image: AssetImage('assets/grounddd.jfif'),
+                                      fit: BoxFit.cover,
+                                    ),
+                                  ),
+                                ),
+                                Expanded(
+                                  child: Padding(
+                                    padding: const EdgeInsets.all(10.0),
+                                    child: Column(
+                                      crossAxisAlignment: CrossAxisAlignment.start,
+                                      children: [
+                                        Text(
+                                          'Groundwater',
+                                          style: TextStyle(
+                                            color: Colors.black,
+                                            fontWeight: FontWeight.bold,
+                                            fontSize: 16,
+                                          ),
+                                        ),
+                                        SizedBox(height: 4),
+                                        Text(
+                                          'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
+                                          style: TextStyle(
+                                            color: Colors.black,
+                                            fontSize: 12,
+                                          ),
+                                        ),
+                                      ],
+                                    ),
+                                  ),
+                                ),
+                              ],
+                            ),
                           ),
                         ),
                       ),
                     ),
-                    const SizedBox(height: 30),
+                    const SizedBox(height: 15),
                     GestureDetector(
                       onTap: () {
                         Navigator.pushNamed(context, 'pipeline');
                       },
-                      child: Container(
-                        decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(10.0),
-                          border: Border.all(
-                            color: Colors.black, // Black color
-                            width: 2.0,
+                      child: FractionallySizedBox(
+                        widthFactor: 0.9, // Adjust the width factor as desired
+                        child: Card(
+                          elevation: 4,
+                          shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(10.0),
                           ),
-                        ),
-                        width: 80 * 4,
-                        height: 80.0, // Increase the height as desired
-                        child: ClipRRect(
-                          borderRadius: BorderRadius.circular(10.0),
-                          child: Image.asset(
-                            'assets/pipe.jpg',
-                            fit: BoxFit.cover,
-                            width: double.infinity,
+                          child: FractionallySizedBox(
+                            widthFactor: 0.9, // Adjust the width factor as desired
+                            child: Row(
+                              children: [
+                                Container(
+                                  width: 100,
+                                  height: 80,
+                                  decoration: BoxDecoration(
+                                    borderRadius: BorderRadius.only(
+                                      topLeft: Radius.circular(10.0),
+                                      bottomLeft: Radius.circular(10.0),
+                                    ),
+                                    image: DecorationImage(
+                                      image: AssetImage('assets/pipe.jpg'),
+                                      fit: BoxFit.cover,
+                                    ),
+                                  ),
+                                ),
+                                Expanded(
+                                  child: Padding(
+                                    padding: const EdgeInsets.all(10.0),
+                                    child: Column(
+                                      crossAxisAlignment: CrossAxisAlignment.start,
+                                      children: [
+                                        Text(
+                                          'Pipeline Detector',
+                                          style: TextStyle(
+                                            color: Colors.black,
+                                            fontWeight: FontWeight.bold,
+                                            fontSize: 16,
+                                          ),
+                                        ),
+                                        SizedBox(height: 4),
+                                        Text(
+                                          'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
+                                          style: TextStyle(
+                                            color: Colors.black,
+                                            fontSize: 12,
+                                          ),
+                                        ),
+                                      ],
+                                    ),
+                                  ),
+                                ),
+                              ],
+                            ),
                           ),
                         ),
                       ),
                     ),
-                    const SizedBox(height: 30),
+                    const SizedBox(height: 15),
                     GestureDetector(
                       onTap: () {
                         Navigator.pushNamed(context, 'waterconditioner');
                       },
-                      child: Container(
-                        decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(10.0),
-                          border: Border.all(
-                            color: Colors.black, // Black color
-                            width: 2.0,
+                      child: FractionallySizedBox(
+                        widthFactor: 0.9*0.99, // Adjust the width factor as desired
+                        child: Card(
+                          elevation: 4,
+                          shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(10.0),
                           ),
-                        ),
-                        width: 80 * 4,
-                        height: 80.0, // Increase the height as desired
-                        child: ClipRRect(
-                          borderRadius: BorderRadius.circular(10.0),
-                          child: Image.asset(
-                            'assets/conditioner.jpg',
-                            fit: BoxFit.cover,
-                            width: double.infinity,
+                          child: FractionallySizedBox(
+                            widthFactor: 0.9, // Adjust the width factor as desired
+                            child: Row(
+                              children: [
+                                Container(
+                                  width: 100,
+                                  height: 80,
+                                  decoration: BoxDecoration(
+                                    borderRadius: BorderRadius.only(
+                                      topLeft: Radius.circular(10.0),
+                                      bottomLeft: Radius.circular(10.0),
+                                    ),
+                                    image: DecorationImage(
+                                      image: AssetImage('assets/conditioner.jpg'),
+                                      fit: BoxFit.cover,
+                                    ),
+                                  ),
+                                ),
+                                Expanded(
+                                  child: Padding(
+                                    padding: const EdgeInsets.all(10.0),
+                                    child: Column(
+                                      crossAxisAlignment: CrossAxisAlignment.start,
+                                      children: [
+                                        Text(
+                                          'Waterconditioner',
+                                          style: TextStyle(
+                                            color: Colors.black,
+                                            fontWeight: FontWeight.bold,
+                                            fontSize: 16,
+                                          ),
+                                        ),
+                                        SizedBox(height: 4),
+                                        Text(
+                                          'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
+                                          style: TextStyle(
+                                            color: Colors.black,
+                                            fontSize: 12,
+                                          ),
+                                        ),
+                                      ],
+                                    ),
+                                  ),
+                                ),
+                              ],
+                            ),
                           ),
                         ),
                       ),
                     ),
-                    const SizedBox(height: 30),
+                    const SizedBox(height: 15),
                     GestureDetector(
                       onTap: () {
                         Navigator.pushNamed(context, 'miscell');
                       },
-                      child: Container(
-                        decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(10.0),
-                          border: Border.all(
-                            color: Colors.black, // Black color
-                            width: 2.0,
+                      child: FractionallySizedBox(
+                        widthFactor: 0.9, // Adjust the width factor as desired
+                        child: Card(
+                          elevation: 4,
+                          shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(10.0),
                           ),
-                        ),
-                        width: 80 * 4,
-                        height: 80.0, // Increase the height as desired
-                        child: ClipRRect(
-                          borderRadius: BorderRadius.circular(10.0),
-                          child: Image.asset(
-                            'assets/miscell.jfif',
-                            fit: BoxFit.cover,
-                            width: double.infinity,
+                          child: FractionallySizedBox(
+                            widthFactor: 0.9, // Adjust the width factor as desired
+                            child: Row(
+                              children: [
+                                Container(
+                                  width: 100,
+                                  height: 80,
+                                  decoration: BoxDecoration(
+                                    borderRadius: BorderRadius.only(
+                                      topLeft: Radius.circular(10.0),
+                                      bottomLeft: Radius.circular(10.0),
+                                    ),
+                                    image: DecorationImage(
+                                      image: AssetImage('assets/miscell.jfif'),
+                                      fit: BoxFit.cover,
+                                    ),
+                                  ),
+                                ),
+                                Expanded(
+                                  child: Padding(
+                                    padding: const EdgeInsets.all(10.0),
+                                    child: Column(
+                                      crossAxisAlignment: CrossAxisAlignment.start,
+                                      children: [
+                                        Text(
+                                          ' Miscellaneous ',
+                                          style: TextStyle(
+                                            color: Colors.black,
+                                            fontWeight: FontWeight.bold,
+                                            fontSize: 16,
+                                          ),
+                                        ),
+                                        SizedBox(height: 4),
+                                        Text(
+                                          'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
+                                          style: TextStyle(
+                                            color: Colors.black,
+                                            fontSize: 12,
+                                          ),
+                                        ),
+                                      ],
+                                    ),
+                                  ),
+                                ),
+                              ],
+                            ),
                           ),
                         ),
                       ),
                     ),
+
+                    // Repeat the above pattern for other cards
                   ],
                 ),
               ),

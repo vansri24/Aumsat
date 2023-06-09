@@ -1,7 +1,11 @@
 
+import 'package:aumsat/landing.dart';
+import 'package:aumsat/mapscreen.dart';
+import 'package:aumsat/profile.dart';
 import 'package:flutter/material.dart';
 
 class MyServices extends StatefulWidget {
+
   const MyServices({Key? key}) : super(key: key);
 
   @override
@@ -13,6 +17,43 @@ class _MyServicesState extends State<MyServices> {
   bool isButton2Tapped = false;
   bool isButton3Tapped = false;
   bool isButton4Tapped = false;
+
+  int _selectedIndex = 0;
+
+
+
+  void _onItemTapped(int index) {
+    setState(() {
+      _selectedIndex = index;
+    });
+    if (index == 0) {
+      Navigator.push(
+        context,
+        MaterialPageRoute(builder: (context) => MyLanding()),
+      );
+    }
+    if (index == 1) {
+      Navigator.push(
+        context,
+        MaterialPageRoute(builder: (context) => MyServices()),
+      );
+    }
+    if (index == 2) {
+      Navigator.push(
+        context,
+        MaterialPageRoute(builder: (context) => MyMapScreen()),
+      );
+    }
+    if (index == 3) {
+      Navigator.push(
+        context,
+        MaterialPageRoute(builder: (context) => MyProfile()),
+      );
+    }else {
+      // Handle other navigation routes here
+    }
+  }
+
 
   @override
   Widget build(BuildContext context) {
@@ -146,6 +187,30 @@ class _MyServicesState extends State<MyServices> {
               ),
             ),
           ],
+        ),
+        bottomNavigationBar: BottomNavigationBar(
+          items: const <BottomNavigationBarItem>[
+            BottomNavigationBarItem(
+              icon: Icon(Icons.home),
+              label: 'Home',
+            ),
+            BottomNavigationBarItem(
+              icon: Icon(Icons.format_list_numbered),
+              label: 'Services',
+            ),
+            BottomNavigationBarItem(
+              icon: Icon(Icons.map_outlined),
+              label: 'Map',
+            ),
+            BottomNavigationBarItem(
+              icon: Icon(Icons.person),
+              label: 'Profile',
+            ),
+          ],
+          currentIndex: _selectedIndex,
+          selectedItemColor: Colors.black,
+          unselectedItemColor: Colors.grey,
+          onTap: _onItemTapped,
         ),
       ),
     );

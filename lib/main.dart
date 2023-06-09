@@ -27,7 +27,7 @@ void main() {
             'groundwater':(context)=> const MyGroundwater(),
             'pipeline':(context) => const MyPipeline(),
             'miscell':(context) => const MyMiscell(),
-            'mapscreen':(context) => const MyMapscreen(),
+            'mapscreen':(context) => const MyMapScreen(),
             'profile':(context) => const MyProfile(),
           }
       )
