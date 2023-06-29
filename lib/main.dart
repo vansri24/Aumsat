@@ -1,3 +1,4 @@
+import 'package:aumsat/mappage.dart';
 import 'package:aumsat/miscell.dart';
 import 'package:aumsat/pipeline.dart';
 import 'package:aumsat/profile.dart';
@@ -27,6 +28,7 @@ void main() {
             'groundwater':(context)=> const MyGroundwater(),
             'pipeline':(context) => const MyPipeline(),
             'miscell':(context) => const MyMiscell(),
+            'mappage':(context) => const MyMapPage(),
             'mapscreen':(context) => const MyMapScreen(),
             'profile':(context) => const MyProfile(),
           }

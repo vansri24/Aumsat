@@ -1,11 +1,9 @@
-
 import 'package:aumsat/landing.dart';
-import 'package:aumsat/mapscreen.dart';
+import 'package:aumsat/mappage.dart';
 import 'package:aumsat/profile.dart';
 import 'package:flutter/material.dart';
 
 class MyServices extends StatefulWidget {
-
   const MyServices({Key? key}) : super(key: key);
 
   @override
@@ -18,42 +16,35 @@ class _MyServicesState extends State<MyServices> {
   bool isButton3Tapped = false;
   bool isButton4Tapped = false;
 
-  int _selectedIndex = 0;
-
-
+  int _selectedIndex = 1; // Set the initial selectedIndex to 1 (Services)
 
   void _onItemTapped(int index) {
     setState(() {
       _selectedIndex = index;
+      isButton1Tapped = false;
+      isButton2Tapped = false;
+      isButton3Tapped = false;
+      isButton4Tapped = false;
     });
     if (index == 0) {
       Navigator.push(
         context,
         MaterialPageRoute(builder: (context) => MyLanding()),
       );
-    }
-    if (index == 1) {
+    } else if (index == 2) {
       Navigator.push(
         context,
-        MaterialPageRoute(builder: (context) => MyServices()),
+        MaterialPageRoute(builder: (context) => MyMapPage()),
       );
-    }
-    if (index == 2) {
-      Navigator.push(
-        context,
-        MaterialPageRoute(builder: (context) => MyMapScreen()),
-      );
-    }
-    if (index == 3) {
+    } else if (index == 3) {
       Navigator.push(
         context,
         MaterialPageRoute(builder: (context) => MyProfile()),
       );
-    }else {
+    } else {
       // Handle other navigation routes here
     }
   }
-
 
   @override
   Widget build(BuildContext context) {

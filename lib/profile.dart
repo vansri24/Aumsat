@@ -1,3 +1,6 @@
+import 'package:aumsat/landing.dart';
+import 'package:aumsat/mappage.dart';
+import 'package:aumsat/services.dart';
 import 'package:flutter/material.dart';
 
 class MyProfile extends StatefulWidget {
@@ -8,6 +11,48 @@ class MyProfile extends StatefulWidget {
 }
 
 class _MyProfileState extends State<MyProfile> {
+  bool isButton1Tapped = false;
+  bool isButton2Tapped = false;
+  bool isButton3Tapped = false;
+  bool isButton4Tapped = false;
+
+  int _selectedIndex = 3; // Set the initial selectedIndex to 1 (Services)
+
+  void _onItemTapped(int index) {
+    setState(() {
+      _selectedIndex = index;
+      isButton1Tapped = false;
+      isButton2Tapped = false;
+      isButton3Tapped = false;
+      isButton4Tapped = false;
+    });
+    if (index == 0) {
+      Navigator.push(
+        context,
+        MaterialPageRoute(builder: (context) => MyLanding()),
+      );
+
+    }
+    else if (index == 2) {
+      Navigator.push(
+        context,
+        MaterialPageRoute(builder: (context) => MyServices()),
+      );
+    }
+    else if (index == 2) {
+      Navigator.push(
+        context,
+        MaterialPageRoute(builder: (context) => MyMapPage()),
+      );
+    } else if (index == 3) {
+      Navigator.push(
+        context,
+        MaterialPageRoute(builder: (context) => const MyProfile()),
+      );
+    } else {
+      // Handle other navigation routes here
+    }
+  }
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -23,6 +68,30 @@ class _MyProfileState extends State<MyProfile> {
 
         ],
       ),
+        bottomNavigationBar: BottomNavigationBar(
+          items: const <BottomNavigationBarItem>[
+            BottomNavigationBarItem(
+              icon: Icon(Icons.home),
+              label: 'Home',
+            ),
+            BottomNavigationBarItem(
+              icon: Icon(Icons.format_list_numbered),
+              label: 'Services',
+            ),
+            BottomNavigationBarItem(
+              icon: Icon(Icons.map_outlined),
+              label: 'Map',
+            ),
+            BottomNavigationBarItem(
+              icon: Icon(Icons.person),
+              label: 'Profile',
+            ),
+          ],
+          currentIndex: _selectedIndex,
+          selectedItemColor: Colors.black,
+          unselectedItemColor: Colors.grey,
+          onTap: _onItemTapped,
+        ),
     ),
     );
   }

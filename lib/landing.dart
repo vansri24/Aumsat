@@ -1,4 +1,4 @@
-import 'package:aumsat/mapscreen.dart';
+import 'package:aumsat/mappage.dart';
 import 'package:aumsat/profile.dart';
 import 'package:aumsat/services.dart';
 import 'package:flutter/material.dart';
@@ -34,7 +34,7 @@ class _MyLandingState extends State<MyLanding> {
     if (index == 2) {
       Navigator.push(
         context,
-        MaterialPageRoute(builder: (context) => MyMapScreen()),
+        MaterialPageRoute(builder: (context) => MyMapPage()),
       );
     }
     if (index == 3) {
