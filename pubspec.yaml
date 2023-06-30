@@ -55,6 +55,7 @@ dev_dependencies:
   carousel_slider: ^4.2.1
   flutter_map: ^0.14.0
   latlong: ^0.6.1
+  geolocator: ^8.0.1
 
 
 

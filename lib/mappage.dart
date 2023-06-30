@@ -11,15 +11,10 @@ class MyMapPage extends StatefulWidget {
 }
 
 class _MyMapPageState extends State<MyMapPage> {
-  TextEditingController _latitudeController = TextEditingController();
-  TextEditingController _longitudeController = TextEditingController();
+
 
   @override
-  void dispose() {
-    _latitudeController.dispose();
-    _longitudeController.dispose();
-    super.dispose();
-  }
+
 
   bool isButton1Tapped = false;
   bool isButton2Tapped = false;
@@ -70,58 +65,55 @@ class _MyMapPageState extends State<MyMapPage> {
     return Scaffold(
       backgroundColor: Colors.white,
       appBar: AppBar(
-        title: Text(''),
+        title: Text(
+          '',
+          style: TextStyle(fontSize: 20),
+        ),
         backgroundColor: Colors.black,
         elevation: 0,
       ),
-      body: Padding(
-        padding: EdgeInsets.all(20.0),
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          crossAxisAlignment: CrossAxisAlignment.stretch,
-          children: [
-            TextField(
-              controller: _latitudeController,
-              decoration: InputDecoration(
-                labelText: 'Enter Latitude',
-                border: OutlineInputBorder(
-                  borderRadius: BorderRadius.circular(10.0),
-                  borderSide: BorderSide(
-                    color: Colors.black.withOpacity(0.8),
-                    width: 2.0,
+      body: Stack(
+        children: [
+          // Image.asset(
+          //   'assets/earth_image.jpg',
+          //   fit: BoxFit.cover,
+          //   width: double.infinity,
+          //   height: double.infinity,
+          // ),
+          Center(
+            child: Padding(
+              padding: EdgeInsets.all(20.0),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.stretch,
+                children: [
+                  Text(
+                    'Enter your farm coordinates',
+                    style: TextStyle(
+                      fontSize: 30,
+                      fontWeight: FontWeight.bold,
+                      color: Colors.black,
+                    ),
                   ),
-                ),
-              ),
-            ),
-            SizedBox(height: 10.0),
-            TextField(
-              controller: _longitudeController,
-              decoration: InputDecoration(
-                labelText: 'Enter Longitude',
-                border: OutlineInputBorder(
-                  borderRadius: BorderRadius.circular(10.0),
-                  borderSide: BorderSide(
-                    color: Colors.black.withOpacity(0.8),
-                    width: 2.0,
+                  SizedBox(height: 20.0),
+                  Center(
+                    child: ElevatedButton(
+                      onPressed: () {
+                        Navigator.pushNamed(context, 'mapscreen');
+                      },
+                      child: Text(
+                        'Go to Map  -->',
+                        style: TextStyle(color: Colors.white),
+                      ),
+                      style: ElevatedButton.styleFrom(
+                        backgroundColor: Colors.black.withOpacity(0.8),
+                      ),
+                    ),
                   ),
-                ),
+                ],
               ),
             ),
-            SizedBox(height: 20.0),
-            ElevatedButton(
-              onPressed: () {
-                Navigator.pushNamed(context, 'mapscreen');
-              },
-              child: Text(
-                'Go to Map',
-                style: TextStyle(color: Colors.white),
-              ),
-              style: ElevatedButton.styleFrom(
-                backgroundColor: Colors.black.withOpacity(0.8),
-              ),
-            ),
-          ],
-        ),
+          ),
+        ],
       ),
       bottomNavigationBar: BottomNavigationBar(
         items: const <BottomNavigationBarItem>[
@@ -149,4 +141,6 @@ class _MyMapPageState extends State<MyMapPage> {
       ),
     );
   }
+
+
 }
