@@ -21,29 +21,21 @@ class _MyMapScreenState extends State<MyMapScreen> {
           center: LatLng(37.7749, -122.4194),
           zoom: 13.0,
         ),
-        layers: [
-          TileLayerOptions(
+        children: [
+          TileLayer(
             urlTemplate: 'https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',
-            subdomains: ['a', 'b', 'c'],
+            subdomains: const ['a', 'b', 'c'],
           ),
-          MarkerLayerOptions(
+          MarkerLayer(
             markers: [
               Marker(
                 width: 30.0,
                 height: 30.0,
                 point: markerPosition,
                 builder: (context) => Draggable(
-                  child: Container(
-                    child: Icon(
-                      Icons.location_pin,
-                      color: Colors.red,
-                    ),
-                  ),
-                  feedback: Container(
-                    child: Icon(
-                      Icons.location_pin,
-                      color: Colors.red,
-                    ),
+                  feedback: Icon(
+                    Icons.location_pin,
+                    color: Colors.red,
                   ),
                   onDragEnd: (details) {
                     final newPosition = LatLng(
@@ -54,6 +46,10 @@ class _MyMapScreenState extends State<MyMapScreen> {
                       markerPosition = newPosition;
                     });
                   },
+                  child: Icon(
+                    Icons.location_pin,
+                    color: Colors.red,
+                  ),
                 ),
               ),
             ],
