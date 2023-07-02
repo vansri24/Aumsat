@@ -18,12 +18,12 @@ class _MySplashState extends State<MySplash>  {
   void initState() {
     
     super.initState();
-    Timer(Duration(seconds: 2), () {
+    Timer(const Duration(seconds: 2), () {
       Navigator.pushReplacement(
           context,
           MaterialPageRoute(
               builder: (
-                  context) => MyLogin()));
+                  context) => const MyLogin()));
     });
   }
 
@@ -40,7 +40,7 @@ class _MySplashState extends State<MySplash>  {
             Container(
               width: 150.0,
               height: 150.0,
-              decoration: BoxDecoration(
+              decoration: const BoxDecoration(
                 shape: BoxShape.circle,
                 image: DecorationImage(
                   image: AssetImage('assets/logo.jpg'),
@@ -48,8 +48,8 @@ class _MySplashState extends State<MySplash>  {
                 ),
               ),
             ),
-            SizedBox(height: 16.0),
-            Text(
+            const SizedBox(height: 16.0),
+            const Text(
               'My App',
               style: TextStyle(
                 color: Colors.white,

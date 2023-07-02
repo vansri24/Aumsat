@@ -11,8 +11,8 @@ class MyMapPage extends StatefulWidget {
 }
 
 class _MyMapPageState extends State<MyMapPage> {
-  TextEditingController _latitudeController = TextEditingController();
-  TextEditingController _longitudeController = TextEditingController();
+  final TextEditingController _latitudeController = TextEditingController();
+  final TextEditingController _longitudeController = TextEditingController();
 
   @override
   void dispose() {
@@ -39,25 +39,25 @@ class _MyMapPageState extends State<MyMapPage> {
     if (index == 0) {
       Navigator.push(
         context,
-        MaterialPageRoute(builder: (context) => MyLanding()),
+        MaterialPageRoute(builder: (context) => const MyLanding()),
       );
 
     }
     else if (index == 2) {
       Navigator.push(
         context,
-        MaterialPageRoute(builder: (context) => MyServices()),
+        MaterialPageRoute(builder: (context) => const MyServices()),
       );
     }
     else if (index == 2) {
       Navigator.push(
         context,
-        MaterialPageRoute(builder: (context) => MyMapPage()),
+        MaterialPageRoute(builder: (context) => const MyMapPage()),
       );
     } else if (index == 3) {
       Navigator.push(
         context,
-        MaterialPageRoute(builder: (context) => MyProfile()),
+        MaterialPageRoute(builder: (context) => const MyProfile()),
       );
     } else {
       // Handle other navigation routes here
@@ -70,12 +70,12 @@ class _MyMapPageState extends State<MyMapPage> {
     return Scaffold(
       backgroundColor: Colors.white,
       appBar: AppBar(
-        title: Text(''),
+        title: const Text(''),
         backgroundColor: Colors.black,
         elevation: 0,
       ),
       body: Padding(
-        padding: EdgeInsets.all(20.0),
+        padding: const EdgeInsets.all(20.0),
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           crossAxisAlignment: CrossAxisAlignment.stretch,
@@ -93,7 +93,7 @@ class _MyMapPageState extends State<MyMapPage> {
                 ),
               ),
             ),
-            SizedBox(height: 10.0),
+            const SizedBox(height: 10.0),
             TextField(
               controller: _longitudeController,
               decoration: InputDecoration(
@@ -107,17 +107,17 @@ class _MyMapPageState extends State<MyMapPage> {
                 ),
               ),
             ),
-            SizedBox(height: 20.0),
+            const SizedBox(height: 20.0),
             ElevatedButton(
               onPressed: () {
                 Navigator.pushNamed(context, 'mapscreen');
               },
-              child: Text(
-                'Go to Map',
-                style: TextStyle(color: Colors.white),
-              ),
               style: ElevatedButton.styleFrom(
                 backgroundColor: Colors.black.withOpacity(0.8),
+              ),
+              child: const Text(
+                'Go to Map',
+                style: TextStyle(color: Colors.white),
               ),
             ),
           ],
