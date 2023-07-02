@@ -7,7 +7,7 @@ class MyServices extends StatefulWidget {
   const MyServices({Key? key}) : super(key: key);
 
   @override
-  _MyServicesState createState() => _MyServicesState();
+  State<MyServices> createState() => _MyServicesState();
 }
 
 class _MyServicesState extends State<MyServices> {
@@ -29,17 +29,17 @@ class _MyServicesState extends State<MyServices> {
     if (index == 0) {
       Navigator.push(
         context,
-        MaterialPageRoute(builder: (context) => MyLanding()),
+        MaterialPageRoute(builder: (context) => const MyLanding()),
       );
     } else if (index == 2) {
       Navigator.push(
         context,
-        MaterialPageRoute(builder: (context) => MyMapPage()),
+        MaterialPageRoute(builder: (context) => const MyMapPage()),
       );
     } else if (index == 3) {
       Navigator.push(
         context,
-        MaterialPageRoute(builder: (context) => MyProfile()),
+        MaterialPageRoute(builder: (context) => const MyProfile()),
       );
     } else {
       // Handle other navigation routes here
@@ -49,13 +49,13 @@ class _MyServicesState extends State<MyServices> {
   @override
   Widget build(BuildContext context) {
     return Container(
-      decoration: BoxDecoration(
+      decoration: const BoxDecoration(
         color: Colors.transparent, // Replace with your desired background color
       ),
       child: Scaffold(
         backgroundColor: Colors.white,
         appBar: AppBar(
-          title: Text('Services'),
+          title: const Text('Services'),
           backgroundColor: Colors.black,
           elevation: 0,
         ),
@@ -69,7 +69,7 @@ class _MyServicesState extends State<MyServices> {
                   Navigator.pushNamed(context, 'groundwater');
                 },
                 child: AnimatedContainer(
-                  duration: Duration(milliseconds: 200),
+                  duration: const Duration(milliseconds: 200),
                   decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(10.0),
                     border: Border.all(
@@ -98,7 +98,7 @@ class _MyServicesState extends State<MyServices> {
                   Navigator.pushNamed(context, 'pipeline');
                 },
                 child: AnimatedContainer(
-                  duration: Duration(milliseconds: 200),
+                  duration: const Duration(milliseconds: 200),
                   decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(10.0),
                     border: Border.all(
@@ -127,7 +127,7 @@ class _MyServicesState extends State<MyServices> {
                   Navigator.pushNamed(context, 'groundwater');
                 },
                 child: AnimatedContainer(
-                  duration: Duration(milliseconds: 200),
+                  duration: const Duration(milliseconds: 200),
                   decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(10.0),
                     border: Border.all(
@@ -156,7 +156,7 @@ class _MyServicesState extends State<MyServices> {
                   Navigator.pushNamed(context, 'miscell');
                 },
                 child: AnimatedContainer(
-                  duration: Duration(milliseconds: 200),
+                  duration: const Duration(milliseconds: 200),
                   decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(10.0),
                     border: Border.all(

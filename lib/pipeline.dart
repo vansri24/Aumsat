@@ -14,7 +14,7 @@ class _MyPipelineState extends State<MyPipeline> {
       home: Scaffold(
         backgroundColor: Colors.white,
         appBar: AppBar(
-          title: Text('Pipeline'),
+          title: const Text('Pipeline'),
           backgroundColor: Colors.black,
           elevation: 0,
         ),
@@ -43,15 +43,15 @@ class _MyPipelineState extends State<MyPipeline> {
                   ),
                 ),
               ),
-              Padding(
-                padding: const EdgeInsets.all(16.0),
+              const Padding(
+                padding: EdgeInsets.all(16.0),
                 child: Text(
                   'Lorem ipsum dolor sit amet, consectetur adipiscing elit. '
                       'Sed ac justo neque. Phasellus eget congue magna. '
                       'Aenean tempus urna eget mauris commodo, ut rutrum lectus dignissim. '
                       'Vivamus a libero felis. Sed ac quam quam. Ut id nunc id justo convallis semper ut ac dolor. '
                       'Praesent imperdiet, metus ut finibus tincidunt, ipsum arcu sollicitudin neque, vitae tincidunt purus libero nec ex.',
-                  style: const TextStyle(
+                  style: TextStyle(
                     color: Colors.black,
                     fontSize: 18.0,
                   ),
