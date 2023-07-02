@@ -7,7 +7,7 @@ class MyMapPage extends StatefulWidget {
   const MyMapPage({Key? key}) : super(key: key);
 
   @override
-  _MyMapPageState createState() => _MyMapPageState();
+  State<MyMapPage> createState() => _MyMapPageState();
 }
 
 class _MyMapPageState extends State<MyMapPage> {

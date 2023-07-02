@@ -8,7 +8,7 @@ class MyLanding extends StatefulWidget {
   const MyLanding({Key? key}) : super(key: key);
 
   @override
-  _MyLandingState createState() => _MyLandingState();
+  State<MyLanding> createState() => _MyLandingState();
 }
 
 class _MyLandingState extends State<MyLanding> {
