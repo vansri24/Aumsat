@@ -20,7 +20,7 @@ class _MySplashState extends State<MySplash>  {
     super.initState();
     Timer(Duration(seconds: 2), () {
       Navigator.pushReplacement(
-          context as BuildContext,
+          context,
           MaterialPageRoute(
               builder: (
                   context) => MyLogin()));
