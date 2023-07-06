@@ -1,33 +1,33 @@
 {
   "project_info": {
-    "project_number": "1065943345274",
-    "project_id": "aumsat-cbba8",
-    "storage_bucket": "aumsat-cbba8.appspot.com"
+    "project_number": "27243837152",
+    "project_id": "aumsatlogin",
+    "storage_bucket": "aumsatlogin.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:1065943345274:android:ce7151fc0ef98b2f18b3c3",
+        "mobilesdk_app_id": "1:27243837152:android:02063c2c1c1a9859e28285",
         "android_client_info": {
           "package_name": "com.example.aumsat"
         }
       },
       "oauth_client": [
         {
-          "client_id": "1065943345274-a5m7alpltqijs90a3o7idi9r3tcjr9e7.apps.googleusercontent.com",
+          "client_id": "27243837152-tfsrma6g9grjm41ah4f1apsfb0ar1lqs.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyDCzzSH-1I_Qi9DTBfNU0AD6gez0FBACQQ"
+          "current_key": "AIzaSyAxdlqkWNzJ-rLZQfSUDlvIUn2M4OUpXqc"
         }
       ],
       "services": {
         "appinvite_service": {
           "other_platform_oauth_client": [
             {
-              "client_id": "1065943345274-a5m7alpltqijs90a3o7idi9r3tcjr9e7.apps.googleusercontent.com",
+              "client_id": "27243837152-tfsrma6g9grjm41ah4f1apsfb0ar1lqs.apps.googleusercontent.com",
               "client_type": 3
             }
           ]

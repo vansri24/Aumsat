@@ -154,7 +154,7 @@ class _MyLandingState extends State<MyLanding> {
                             child: Row(
                               children: [
                                 Container(
-                                  width: screenWidth * 0.20,
+                                  width: screenWidth * 0.2,
                                   height: screenHeight * 0.10,
                                   decoration: BoxDecoration(
                                     borderRadius: BorderRadius.only(
