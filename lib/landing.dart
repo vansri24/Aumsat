@@ -8,7 +8,7 @@ class MyLanding extends StatefulWidget {
   const MyLanding({Key? key}) : super(key: key);
 
   @override
-  _MyLandingState createState() => _MyLandingState();
+  State<MyLanding> createState() => _MyLandingState();
 }
 
 class _MyLandingState extends State<MyLanding> {
@@ -28,19 +28,19 @@ class _MyLandingState extends State<MyLanding> {
     if (index == 1) {
       Navigator.push(
         context,
-        MaterialPageRoute(builder: (context) => MyServices()),
+        MaterialPageRoute(builder: (context) => const MyServices()),
       );
     }
     if (index == 2) {
       Navigator.push(
         context,
-        MaterialPageRoute(builder: (context) => MyMapPage()),
+        MaterialPageRoute(builder: (context) => const MyMapPage()),
       );
     }
     if (index == 3) {
       Navigator.push(
         context,
-        MaterialPageRoute(builder: (context) => MyProfile()),
+        MaterialPageRoute(builder: (context) => const MyProfile()),
       );
     } else {
       // Handle other navigation routes here
@@ -53,13 +53,13 @@ class _MyLandingState extends State<MyLanding> {
     //final screenWidth = MediaQuery.of(context).size.width;
 
     return Container(
-      decoration: BoxDecoration(
+      decoration: const BoxDecoration(
         color: Colors.transparent, // Replace with your desired background color
       ),
       child: Scaffold(
         backgroundColor: Colors.white,
         appBar: AppBar(
-          title: Text('Services'),
+          title: const Text('Services'),
           backgroundColor: Colors.transparent,
           elevation: 0,
         ),
@@ -81,7 +81,7 @@ class _MyLandingState extends State<MyLanding> {
                 aspectRatio: 2,
                   child: Container(
                     decoration: BoxDecoration(
-                      borderRadius: BorderRadius.only(
+                      borderRadius: const BorderRadius.only(
                         topLeft: Radius.circular(10.0),
                         bottomLeft: Radius.circular(10.0),
                       ),
@@ -121,7 +121,7 @@ class _MyLandingState extends State<MyLanding> {
                                 Container(
                                   width: 100,
                                   height: 80,
-                                  decoration: BoxDecoration(
+                                  decoration: const BoxDecoration(
                                     borderRadius: BorderRadius.only(
                                       topLeft: Radius.circular(10.0),
                                       bottomLeft: Radius.circular(10.0),
@@ -132,9 +132,9 @@ class _MyLandingState extends State<MyLanding> {
                                     ),
                                   ),
                                 ),
-                                Expanded(
+                                const Expanded(
                                   child: Padding(
-                                    padding: const EdgeInsets.all(10.0),
+                                    padding: EdgeInsets.all(10.0),
                                     child: Column(
                                       crossAxisAlignment: CrossAxisAlignment.start,
                                       children: [
@@ -183,7 +183,7 @@ class _MyLandingState extends State<MyLanding> {
                                 Container(
                                   width: 100,
                                   height: 80,
-                                  decoration: BoxDecoration(
+                                  decoration: const BoxDecoration(
                                     borderRadius: BorderRadius.only(
                                       topLeft: Radius.circular(10.0),
                                       bottomLeft: Radius.circular(10.0),
@@ -194,9 +194,9 @@ class _MyLandingState extends State<MyLanding> {
                                     ),
                                   ),
                                 ),
-                                Expanded(
+                                const Expanded(
                                   child: Padding(
-                                    padding: const EdgeInsets.all(10.0),
+                                    padding: EdgeInsets.all(10.0),
                                     child: Column(
                                       crossAxisAlignment: CrossAxisAlignment.start,
                                       children: [
@@ -245,7 +245,7 @@ class _MyLandingState extends State<MyLanding> {
                                 Container(
                                   width: 100,
                                   height: 80,
-                                  decoration: BoxDecoration(
+                                  decoration: const BoxDecoration(
                                     borderRadius: BorderRadius.only(
                                       topLeft: Radius.circular(10.0),
                                       bottomLeft: Radius.circular(10.0),
@@ -256,9 +256,9 @@ class _MyLandingState extends State<MyLanding> {
                                     ),
                                   ),
                                 ),
-                                Expanded(
+                                const Expanded(
                                   child: Padding(
-                                    padding: const EdgeInsets.all(10.0),
+                                    padding: EdgeInsets.all(10.0),
                                     child: Column(
                                       crossAxisAlignment: CrossAxisAlignment.start,
                                       children: [
@@ -307,7 +307,7 @@ class _MyLandingState extends State<MyLanding> {
                                 Container(
                                   width: 100,
                                   height: 80,
-                                  decoration: BoxDecoration(
+                                  decoration: const BoxDecoration(
                                     borderRadius: BorderRadius.only(
                                       topLeft: Radius.circular(10.0),
                                       bottomLeft: Radius.circular(10.0),
@@ -318,9 +318,9 @@ class _MyLandingState extends State<MyLanding> {
                                     ),
                                   ),
                                 ),
-                                Expanded(
+                                const Expanded(
                                   child: Padding(
-                                    padding: const EdgeInsets.all(10.0),
+                                    padding: EdgeInsets.all(10.0),
                                     child: Column(
                                       crossAxisAlignment: CrossAxisAlignment.start,
                                       children: [

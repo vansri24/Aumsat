@@ -29,20 +29,20 @@ class _MyProfileState extends State<MyProfile> {
     if (index == 0) {
       Navigator.push(
         context,
-        MaterialPageRoute(builder: (context) => MyLanding()),
+        MaterialPageRoute(builder: (context) => const MyLanding()),
       );
 
     }
     else if (index == 2) {
       Navigator.push(
         context,
-        MaterialPageRoute(builder: (context) => MyServices()),
+        MaterialPageRoute(builder: (context) => const MyServices()),
       );
     }
     else if (index == 2) {
       Navigator.push(
         context,
-        MaterialPageRoute(builder: (context) => MyMapPage()),
+        MaterialPageRoute(builder: (context) => const MyMapPage()),
       );
     } else if (index == 3) {
       Navigator.push(

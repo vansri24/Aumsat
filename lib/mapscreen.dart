@@ -10,7 +10,7 @@ class MyMapScreen extends StatefulWidget {
 }
 
 class _MyMapScreenState extends State<MyMapScreen> {
-  LatLng markerPosition = LatLng(37.7749, -122.4194);
+  LatLng markerPosition = const LatLng(37.7749, -122.4194);
 
   @override
   Widget build(BuildContext context) {
@@ -18,7 +18,7 @@ class _MyMapScreenState extends State<MyMapScreen> {
       backgroundColor: Colors.transparent,
       body: FlutterMap(
         options: MapOptions(
-          center: LatLng(37.7749, -122.4194),
+          center: const LatLng(37.7749, -122.4194),
           zoom: 13.0,
         ),
         children: [
@@ -33,7 +33,7 @@ class _MyMapScreenState extends State<MyMapScreen> {
                 height: 30.0,
                 point: markerPosition,
                 builder: (context) => Draggable(
-                  feedback: Icon(
+                  feedback: const Icon(
                     Icons.location_pin,
                     color: Colors.red,
                   ),
@@ -46,7 +46,7 @@ class _MyMapScreenState extends State<MyMapScreen> {
                       markerPosition = newPosition;
                     });
                   },
-                  child: Icon(
+                  child: const Icon(
                     Icons.location_pin,
                     color: Colors.red,
                   ),
