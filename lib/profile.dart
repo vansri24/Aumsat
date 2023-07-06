@@ -33,7 +33,7 @@ class _MyProfileState extends State<MyProfile> {
       );
 
     }
-    else if (index == 2) {
+    else if (index == 1) {
       Navigator.pushReplacement(
         context,
         MaterialPageRoute(builder: (context) => const MyServices()),
