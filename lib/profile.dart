@@ -44,12 +44,8 @@ class _MyProfileState extends State<MyProfile> {
         context,
         MaterialPageRoute(builder: (context) => const MyMapPage()),
       );
-    } else if (index == 3) {
-      Navigator.pushReplacement(
-        context,
-        MaterialPageRoute(builder: (context) => const MyProfile()),
-      );
-    } else {
+    }
+     else {
       // Handle other navigation routes here
     }
   }

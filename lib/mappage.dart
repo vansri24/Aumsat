@@ -38,18 +38,13 @@ class _MyMapPageState extends State<MyMapPage> {
       );
 
     }
-    else if (index == 2) {
+    else if (index == 1) {
       Navigator.push(
         context,
         MaterialPageRoute(builder: (context) => MyServices()),
       );
     }
-    else if (index == 2) {
-      Navigator.push(
-        context,
-        MaterialPageRoute(builder: (context) => MyMapPage()),
-      );
-    } else if (index == 3) {
+     else if (index == 3) {
       Navigator.push(
         context,
         MaterialPageRoute(builder: (context) => MyProfile()),
