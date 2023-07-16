@@ -29,6 +29,13 @@
             {
               "client_id": "27243837152-tfsrma6g9grjm41ah4f1apsfb0ar1lqs.apps.googleusercontent.com",
               "client_type": 3
+            },
+            {
+              "client_id": "27243837152-tfsklpksbsbe1l60j350umsb2ta6g7n3.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.aumsat"
+              }
             }
           ]
         }
