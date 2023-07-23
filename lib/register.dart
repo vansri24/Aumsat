@@ -6,7 +6,7 @@ class MyRegister extends StatefulWidget {
   const MyRegister({Key? key}) : super(key: key);
 
   @override
-  _MyRegisterState createState() => _MyRegisterState();
+  State<MyRegister> createState() => _MyRegisterState();
 }
 
 class _MyRegisterState extends State<MyRegister> {
@@ -26,11 +26,11 @@ class _MyRegisterState extends State<MyRegister> {
   Future<void> registerUser() async {
     try {
       final String name = _nameController.text.trim();
-      final String mobile = '+1' + _mobileController.text.trim();
+      final String mobile = '+1${_mobileController.text.trim()}';
       final String password = _passwordController.text.trim();
 
       // Verify the phone number and get a verification ID
-      PhoneVerificationCompleted verificationCompleted = (PhoneAuthCredential credential) async {
+      verificationCompleted(PhoneAuthCredential credential) async {
         // Create a user with the phone number credential
         UserCredential userCredential = await _auth.signInWithCredential(credential);
 
@@ -38,15 +38,15 @@ class _MyRegisterState extends State<MyRegister> {
         await userCredential.user?.updateDisplayName(name);
 
         // Registration successful, you can add additional code here.
-        print('Registration successful');
-      };
+        debugPrint('Registration successful');
+      }
 
-      PhoneVerificationFailed verificationFailed = (FirebaseAuthException exception) {
+      verificationFailed(FirebaseAuthException exception) {
         // Handle phone number verification failure
-        print('Phone number verification failed: ${exception.message}');
-      };
+        debugPrint('Phone number verification failed: ${exception.message}');
+      }
 
-      PhoneCodeSent codeSent = (String verificationId, int? resendToken) async {
+      codeSent(String verificationId, int? resendToken) async {
         // Save the verification ID and navigate to the OTP screen
         Navigator.pushNamed(context, 'otp', arguments: {
           'verificationId': verificationId,
@@ -54,12 +54,12 @@ class _MyRegisterState extends State<MyRegister> {
           'mobile': mobile,
           'password': password,
         });
-      };
+      }
 
-      PhoneCodeAutoRetrievalTimeout codeAutoRetrievalTimeout = (String verificationId) {
+      codeAutoRetrievalTimeout(String verificationId) {
         // Handle timeout for automatic code retrieval
-        print('Code auto retrieval timed out');
-      };
+        debugPrint('Code auto retrieval timed out');
+      }
 
       // Start the phone number verification process
       await _auth.verifyPhoneNumber(
@@ -70,7 +70,7 @@ class _MyRegisterState extends State<MyRegister> {
         codeAutoRetrievalTimeout: codeAutoRetrievalTimeout,
       );
     } catch (e) {
-      print(e.toString());
+      debugPrint(e.toString());
     }
   }
 
@@ -227,7 +227,7 @@ class _MyRegisterState extends State<MyRegister> {
                                 onPressed: () {
                                   Navigator.pushNamed(context, 'login');
                                 },
-                                style: ButtonStyle(),
+                                style: const ButtonStyle(),
                                 child: const Text(
                                   'Already have an account? Login',
                                   textAlign: TextAlign.left,
