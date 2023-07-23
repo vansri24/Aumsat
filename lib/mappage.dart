@@ -9,7 +9,7 @@ class MyMapPage extends StatefulWidget {
   const MyMapPage({Key? key}) : super(key: key);
 
   @override
-  _MyMapPageState createState() => _MyMapPageState();
+  State<MyMapPage> createState() => _MyMapPageState();
 }
 
 class _MyMapPageState extends State<MyMapPage> {
@@ -19,40 +19,38 @@ class _MyMapPageState extends State<MyMapPage> {
     LocationPermission permission;
 
     if (!await Geolocator.isLocationServiceEnabled()) {
-
-      _showErrorDialog('Location services are disabled. Please enable them to use the map.');
+      _showErrorDialog(
+          'Location services are disabled. Please enable them to use the map.');
       return;
     }
-
 
     permission = await Geolocator.requestPermission();
 
     if (permission == LocationPermission.denied) {
-
       _showPermissionDialog();
       return;
     } else if (permission == LocationPermission.deniedForever) {
-
-      _showErrorDialog('Location permission permanently denied. You can grant the permission from the app settings.');
+      _showErrorDialog(
+          'Location permission permanently denied. You can grant the permission from the app settings.');
       return;
     }
-
 
     Position position = await Geolocator.getCurrentPosition(
       desiredAccuracy: LocationAccuracy.high,
     );
 
-
     double latitude = position.latitude;
     double longitude = position.longitude;
 
-
-    Navigator.push(
-      context,
-      MaterialPageRoute(
-        builder: (context) => MapDisplay(latitude: latitude, longitude: longitude),
-      ),
-    );
+    if (mounted) {
+      Navigator.push(
+        context,
+        MaterialPageRoute(
+          builder: (BuildContext context) =>
+              MapDisplay(latitude: latitude, longitude: longitude),
+        ),
+      );
+    }
   }
 
   void _showErrorDialog(String message) {
@@ -81,7 +79,8 @@ class _MyMapPageState extends State<MyMapPage> {
       builder: (BuildContext context) {
         return AlertDialog(
           title: const Text('Permission Required'),
-          content: const Text('Please enable location permission to use the map.'),
+          content:
+              const Text('Please enable location permission to use the map.'),
           actions: [
             TextButton(
               onPressed: () {
@@ -201,7 +200,8 @@ class MapDisplay extends StatelessWidget {
   final double latitude;
   final double longitude;
 
-  const MapDisplay({super.key, required this.latitude, required this.longitude});
+  const MapDisplay(
+      {super.key, required this.latitude, required this.longitude});
 
   @override
   Widget build(BuildContext context) {
