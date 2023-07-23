@@ -86,10 +86,10 @@ class _MyMapScreenState extends State<MyMapScreen> {
               },
             );
           },
-          child: const Text('Add'),
           style: ElevatedButton.styleFrom(
             backgroundColor: Colors.black.withOpacity(0.5),
           ),
+          child: const Text('Add'),
         ),
       ),
       Positioned(
@@ -122,10 +122,10 @@ class _MyMapScreenState extends State<MyMapScreen> {
               },
             );
           },
-          child: const Text('Edit'),
           style: ElevatedButton.styleFrom(
             backgroundColor: Colors.black.withOpacity(0.5),
           ),
+          child: const Text('Edit'),
         ),
       ),
 
@@ -159,10 +159,10 @@ class _MyMapScreenState extends State<MyMapScreen> {
             },
           );
         },
-        child: const Text('Delete'),
         style: ElevatedButton.styleFrom(
           backgroundColor: Colors.black.withOpacity(0.5),
         ),
+        child: const Text('Delete'),
       ),
     ),
     ],

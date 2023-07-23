@@ -71,19 +71,19 @@ class _MyLandingState extends State<MyLanding> {
       case 1:
         Navigator.push(
           context,
-          MaterialPageRoute(builder: (context) => MyServices()),
+          MaterialPageRoute(builder: (context) => const MyServices()),
         );
         break;
       case 2:
         Navigator.push(
           context,
-          MaterialPageRoute(builder: (context) => MyMapPage()),
+          MaterialPageRoute(builder: (context) => const MyMapPage()),
         );
         break;
       case 3:
         Navigator.push(
           context,
-          MaterialPageRoute(builder: (context) => MyProfile()),
+          MaterialPageRoute(builder: (context) => const MyProfile()),
         );
         break;
       default:
@@ -97,7 +97,7 @@ class _MyLandingState extends State<MyLanding> {
     final screenHeight = MediaQuery.of(context).size.height;
 
     return Container(
-      decoration: BoxDecoration(
+      decoration: const BoxDecoration(
         color: Colors.transparent,
       ),
       child: Scaffold(
@@ -123,7 +123,7 @@ class _MyLandingState extends State<MyLanding> {
                   child: Container(
                     width: screenWidth * 0.9,
                     margin: const EdgeInsets.symmetric(horizontal: 5.0),
-                    decoration: BoxDecoration(
+                    decoration: const BoxDecoration(
                       color: Colors.transparent,
                     ),
                     child: item,
@@ -157,7 +157,7 @@ class _MyLandingState extends State<MyLanding> {
                                   width: screenWidth * 0.2,
                                   height: screenHeight * 0.10,
                                   decoration: BoxDecoration(
-                                    borderRadius: BorderRadius.only(
+                                    borderRadius: const BorderRadius.only(
                                       topLeft: Radius.circular(10.0),
                                       bottomLeft: Radius.circular(10.0),
                                     ),
@@ -175,16 +175,16 @@ class _MyLandingState extends State<MyLanding> {
                                       children: [
                                         Text(
                                           serviceCards[index].title,
-                                          style: TextStyle(
+                                          style: const TextStyle(
                                             color: Colors.black,
                                             fontWeight: FontWeight.bold,
                                             fontSize: 16,
                                           ),
                                         ),
-                                        SizedBox(height: 4),
+                                        const SizedBox(height: 4),
                                         Text(
                                           serviceCards[index].description,
-                                          style: TextStyle(
+                                          style: const TextStyle(
                                             color: Colors.black,
                                             fontSize: 12,
                                           ),

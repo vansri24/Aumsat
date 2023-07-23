@@ -60,14 +60,14 @@ class _MyMapPageState extends State<MyMapPage> {
       context: context,
       builder: (BuildContext context) {
         return AlertDialog(
-          title: Text('Error'),
+          title: const Text('Error'),
           content: Text(message),
           actions: [
             TextButton(
               onPressed: () {
                 Navigator.of(context).pop();
               },
-              child: Text('OK'),
+              child: const Text('OK'),
             ),
           ],
         );
@@ -80,15 +80,15 @@ class _MyMapPageState extends State<MyMapPage> {
       context: context,
       builder: (BuildContext context) {
         return AlertDialog(
-          title: Text('Permission Required'),
-          content: Text('Please enable location permission to use the map.'),
+          title: const Text('Permission Required'),
+          content: const Text('Please enable location permission to use the map.'),
           actions: [
             TextButton(
               onPressed: () {
                 Navigator.of(context).pop();
                 _getUserLocation(); // Retry getting location after showing the dialog
               },
-              child: Text('OK'),
+              child: const Text('OK'),
             ),
           ],
         );
@@ -103,17 +103,17 @@ class _MyMapPageState extends State<MyMapPage> {
     if (index == 0) {
       Navigator.push(
         context,
-        MaterialPageRoute(builder: (context) => MyLanding()),
+        MaterialPageRoute(builder: (context) => const MyLanding()),
       );
     } else if (index == 1) {
       Navigator.push(
         context,
-        MaterialPageRoute(builder: (context) => MyServices()),
+        MaterialPageRoute(builder: (context) => const MyServices()),
       );
     } else if (index == 3) {
       Navigator.push(
         context,
-        MaterialPageRoute(builder: (context) => MyProfile()),
+        MaterialPageRoute(builder: (context) => const MyProfile()),
       );
     } else {
       // Handle other navigation routes here
@@ -125,7 +125,7 @@ class _MyMapPageState extends State<MyMapPage> {
     return Scaffold(
       backgroundColor: Colors.white,
       appBar: AppBar(
-        title: Text(
+        title: const Text(
           '',
           style: TextStyle(fontSize: 20),
         ),
@@ -136,11 +136,11 @@ class _MyMapPageState extends State<MyMapPage> {
         children: [
           Center(
             child: Padding(
-              padding: EdgeInsets.all(20.0),
+              padding: const EdgeInsets.all(20.0),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.stretch,
                 children: [
-                  Text(
+                  const Text(
                     'Enter your farm coordinates',
                     style: TextStyle(
                       fontSize: 30,
@@ -148,18 +148,18 @@ class _MyMapPageState extends State<MyMapPage> {
                       color: Colors.black,
                     ),
                   ),
-                  SizedBox(height: 20.0),
+                  const SizedBox(height: 20.0),
                   Center(
                     child: ElevatedButton(
                       onPressed: () {
                         _getUserLocation();
                       },
-                      child: Text(
-                        'Go to Map  -->',
-                        style: TextStyle(color: Colors.white),
-                      ),
                       style: ElevatedButton.styleFrom(
                         backgroundColor: Colors.black.withOpacity(0.8),
+                      ),
+                      child: const Text(
+                        'Go to Map  -->',
+                        style: TextStyle(color: Colors.white),
                       ),
                     ),
                   ),
@@ -201,7 +201,7 @@ class MapDisplay extends StatelessWidget {
   final double latitude;
   final double longitude;
 
-  MapDisplay({required this.latitude, required this.longitude});
+  const MapDisplay({super.key, required this.latitude, required this.longitude});
 
   @override
   Widget build(BuildContext context) {
@@ -209,12 +209,12 @@ class MapDisplay extends StatelessWidget {
     // For demonstration purposes, we'll show the coordinates in a text widget.
     return Scaffold(
       appBar: AppBar(
-        title: Text('Map Display'),
+        title: const Text('Map Display'),
       ),
       body: Center(
         child: Text(
           'Latitude: $latitude, Longitude: $longitude',
-          style: TextStyle(fontSize: 20),
+          style: const TextStyle(fontSize: 20),
         ),
       ),
     );
@@ -222,7 +222,7 @@ class MapDisplay extends StatelessWidget {
 }
 
 void main() {
-  runApp(MaterialApp(
+  runApp(const MaterialApp(
     home: MyMapPage(),
   ));
 }
