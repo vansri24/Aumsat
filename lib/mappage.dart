@@ -1,7 +1,9 @@
+import 'package:geolocator/geolocator.dart';
+import 'package:flutter/material.dart';
+
 import 'package:aumsat/landing.dart';
 import 'package:aumsat/profile.dart';
 import 'package:aumsat/services.dart';
-import 'package:flutter/material.dart';
 
 class MyMapPage extends StatefulWidget {
   const MyMapPage({Key? key}) : super(key: key);
@@ -11,40 +13,104 @@ class MyMapPage extends StatefulWidget {
 }
 
 class _MyMapPageState extends State<MyMapPage> {
+  int _selectedIndex = 2; // Set the initial selectedIndex to 2 (Map)
+
+  Future<void> _getUserLocation() async {
+    LocationPermission permission;
+
+    if (!await Geolocator.isLocationServiceEnabled()) {
+
+      _showErrorDialog('Location services are disabled. Please enable them to use the map.');
+      return;
+    }
 
 
-  @override
+    permission = await Geolocator.requestPermission();
+
+    if (permission == LocationPermission.denied) {
+
+      _showPermissionDialog();
+      return;
+    } else if (permission == LocationPermission.deniedForever) {
+
+      _showErrorDialog('Location permission permanently denied. You can grant the permission from the app settings.');
+      return;
+    }
 
 
-  bool isButton1Tapped = false;
-  bool isButton2Tapped = false;
-  bool isButton3Tapped = false;
-  bool isButton4Tapped = false;
+    Position position = await Geolocator.getCurrentPosition(
+      desiredAccuracy: LocationAccuracy.high,
+    );
 
-  int _selectedIndex = 2; // Set the initial selectedIndex to 1 (Services)
+
+    double latitude = position.latitude;
+    double longitude = position.longitude;
+
+
+    Navigator.push(
+      context,
+      MaterialPageRoute(
+        builder: (context) => MapDisplay(latitude: latitude, longitude: longitude),
+      ),
+    );
+  }
+
+  void _showErrorDialog(String message) {
+    showDialog(
+      context: context,
+      builder: (BuildContext context) {
+        return AlertDialog(
+          title: Text('Error'),
+          content: Text(message),
+          actions: [
+            TextButton(
+              onPressed: () {
+                Navigator.of(context).pop();
+              },
+              child: Text('OK'),
+            ),
+          ],
+        );
+      },
+    );
+  }
+
+  void _showPermissionDialog() {
+    showDialog(
+      context: context,
+      builder: (BuildContext context) {
+        return AlertDialog(
+          title: Text('Permission Required'),
+          content: Text('Please enable location permission to use the map.'),
+          actions: [
+            TextButton(
+              onPressed: () {
+                Navigator.of(context).pop();
+                _getUserLocation(); // Retry getting location after showing the dialog
+              },
+              child: Text('OK'),
+            ),
+          ],
+        );
+      },
+    );
+  }
 
   void _onItemTapped(int index) {
     setState(() {
       _selectedIndex = index;
-      isButton1Tapped = false;
-      isButton2Tapped = false;
-      isButton3Tapped = false;
-      isButton4Tapped = false;
     });
     if (index == 0) {
       Navigator.push(
         context,
         MaterialPageRoute(builder: (context) => MyLanding()),
       );
-
-    }
-    else if (index == 1) {
+    } else if (index == 1) {
       Navigator.push(
         context,
         MaterialPageRoute(builder: (context) => MyServices()),
       );
-    }
-     else if (index == 3) {
+    } else if (index == 3) {
       Navigator.push(
         context,
         MaterialPageRoute(builder: (context) => MyProfile()),
@@ -53,7 +119,6 @@ class _MyMapPageState extends State<MyMapPage> {
       // Handle other navigation routes here
     }
   }
-
 
   @override
   Widget build(BuildContext context) {
@@ -69,12 +134,6 @@ class _MyMapPageState extends State<MyMapPage> {
       ),
       body: Stack(
         children: [
-          // Image.asset(
-          //   'assets/earth_image.jpg',
-          //   fit: BoxFit.cover,
-          //   width: double.infinity,
-          //   height: double.infinity,
-          // ),
           Center(
             child: Padding(
               padding: EdgeInsets.all(20.0),
@@ -93,7 +152,7 @@ class _MyMapPageState extends State<MyMapPage> {
                   Center(
                     child: ElevatedButton(
                       onPressed: () {
-                        Navigator.pushNamed(context, 'mapscreen');
+                        _getUserLocation();
                       },
                       child: Text(
                         'Go to Map  -->',
@@ -136,6 +195,34 @@ class _MyMapPageState extends State<MyMapPage> {
       ),
     );
   }
+}
 
+class MapDisplay extends StatelessWidget {
+  final double latitude;
+  final double longitude;
 
+  MapDisplay({required this.latitude, required this.longitude});
+
+  @override
+  Widget build(BuildContext context) {
+    // Here, you can display the map using the latitude and longitude
+    // For demonstration purposes, we'll show the coordinates in a text widget.
+    return Scaffold(
+      appBar: AppBar(
+        title: Text('Map Display'),
+      ),
+      body: Center(
+        child: Text(
+          'Latitude: $latitude, Longitude: $longitude',
+          style: TextStyle(fontSize: 20),
+        ),
+      ),
+    );
+  }
+}
+
+void main() {
+  runApp(MaterialApp(
+    home: MyMapPage(),
+  ));
 }

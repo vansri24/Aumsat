@@ -1,4 +1,3 @@
-// ignore_for_file: library_private_types_in_public_api
 import 'package:flutter/material.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:firebase_auth/firebase_auth.dart';
@@ -14,23 +13,62 @@ class _MyRegisterState extends State<MyRegister> {
   final TextEditingController _nameController = TextEditingController();
   final TextEditingController _mobileController = TextEditingController();
   final TextEditingController _passwordController = TextEditingController();
+  late FirebaseAuth _auth;
 
   @override
   void initState() {
     super.initState();
-    Firebase.initializeApp();
+    Firebase.initializeApp().then((_) {
+      _auth = FirebaseAuth.instance;
+    });
   }
 
   Future<void> registerUser() async {
     try {
-      // Registration successful, you can add additional code here.
-      print('Registration successful');
-    } on FirebaseAuthException catch (e) {
-      if (e.code == 'weak-password') {
-        print('The password provided is too weak.');
-      } else if (e.code == 'email-already-in-use') {
-        print('The account already exists for that email.');
-      }
+      final String name = _nameController.text.trim();
+      final String mobile = '+1' + _mobileController.text.trim();
+      final String password = _passwordController.text.trim();
+
+      // Verify the phone number and get a verification ID
+      PhoneVerificationCompleted verificationCompleted = (PhoneAuthCredential credential) async {
+        // Create a user with the phone number credential
+        UserCredential userCredential = await _auth.signInWithCredential(credential);
+
+        // Update the user's display name
+        await userCredential.user?.updateDisplayName(name);
+
+        // Registration successful, you can add additional code here.
+        print('Registration successful');
+      };
+
+      PhoneVerificationFailed verificationFailed = (FirebaseAuthException exception) {
+        // Handle phone number verification failure
+        print('Phone number verification failed: ${exception.message}');
+      };
+
+      PhoneCodeSent codeSent = (String verificationId, int? resendToken) async {
+        // Save the verification ID and navigate to the OTP screen
+        Navigator.pushNamed(context, 'otp', arguments: {
+          'verificationId': verificationId,
+          'name': name,
+          'mobile': mobile,
+          'password': password,
+        });
+      };
+
+      PhoneCodeAutoRetrievalTimeout codeAutoRetrievalTimeout = (String verificationId) {
+        // Handle timeout for automatic code retrieval
+        print('Code auto retrieval timed out');
+      };
+
+      // Start the phone number verification process
+      await _auth.verifyPhoneNumber(
+        phoneNumber: mobile,
+        verificationCompleted: verificationCompleted,
+        verificationFailed: verificationFailed,
+        codeSent: codeSent,
+        codeAutoRetrievalTimeout: codeAutoRetrievalTimeout,
+      );
     } catch (e) {
       print(e.toString());
     }
