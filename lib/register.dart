@@ -38,12 +38,12 @@ class _MyRegisterState extends State<MyRegister> {
         await userCredential.user?.updateDisplayName(name);
 
         // Registration successful, you can add additional code here.
-        print('Registration successful');
+        debugPrint('Registration successful');
       }
 
       verificationFailed(FirebaseAuthException exception) {
         // Handle phone number verification failure
-        print('Phone number verification failed: ${exception.message}');
+        debugPrint('Phone number verification failed: ${exception.message}');
       }
 
       codeSent(String verificationId, int? resendToken) async {
@@ -58,7 +58,7 @@ class _MyRegisterState extends State<MyRegister> {
 
       codeAutoRetrievalTimeout(String verificationId) {
         // Handle timeout for automatic code retrieval
-        print('Code auto retrieval timed out');
+        debugPrint('Code auto retrieval timed out');
       }
 
       // Start the phone number verification process
@@ -70,7 +70,7 @@ class _MyRegisterState extends State<MyRegister> {
         codeAutoRetrievalTimeout: codeAutoRetrievalTimeout,
       );
     } catch (e) {
-      print(e.toString());
+      debugPrint(e.toString());
     }
   }
 
